@@ -1,5 +1,5 @@
 
-import { Container, Header, ContentLayout, Form, FormField, Input, Button, Textarea } from '@cloudscape-design/components';
+import { Container, Header, ContentLayout, Form, FormField, Input, Button, Textarea, SpaceBetween } from '@cloudscape-design/components';
 
 export default function Contact() {
     return (
@@ -8,15 +8,17 @@ export default function Contact() {
                 <Header variant="h1">Contact Me</Header>
             }
         >
-            <Container>
-                <form onSubmit={e => e.preventDefault()}>
-                    <Form
-                        actions={
-                            <Button variant="primary">Send Message</Button>
-                        }
-                    >
+            <form onSubmit={e => e.preventDefault()}>
+                <Form
+                    actions={
+                        <Button variant="primary">Send Message</Button>
+                    }
+                >
+                    <Container>
+                        <SpaceBetween direction='vertical' size='l'>
                         <FormField
                             label="Name"
+                            stretch
                         >
                             <Input
                                 value=""
@@ -26,6 +28,7 @@ export default function Contact() {
                         </FormField>
                         <FormField
                             label="Email"
+                            stretch
                         >
                             <Input
                                 value=""
@@ -35,6 +38,7 @@ export default function Contact() {
                         </FormField>
                         <FormField
                             label="Message"
+                            stretch
                         >
                             <Textarea
                                 value=""
@@ -42,9 +46,10 @@ export default function Contact() {
                                 placeholder="Your message here"
                             />
                         </FormField>
-                    </Form>
-                </form>
-            </Container>
+                        </SpaceBetween>
+                    </Container>
+                </Form>
+            </form>
         </ContentLayout>
     );
 }
