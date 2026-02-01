@@ -75,7 +75,7 @@ export default function Projects() {
                 filter={
                     <TextFilter
                         {...filterProps}
-                        filteringPlaceholder="Find projects by name or technology"
+                        filteringPlaceholder="Search projects by name or technology"
                         countText={`${filteredItemsCount} matches`}
                     />
                 }
