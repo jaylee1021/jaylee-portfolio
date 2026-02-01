@@ -24,12 +24,17 @@ export default function Layout({ children }: LayoutProps) {
                     utilities={[
                         {
                             type: "button",
-                            text: "Contact",
-                            href: "/contact",
-                            onClick: (e) => {
-                                e.preventDefault();
-                                navigate("/contact");
-                            }
+                            iconName: "share",
+                            text: "LinkedIn",
+                            href: "https://www.linkedin.com/in/jayjonglee",
+                            external: true
+                        },
+                        {
+                            type: "button",
+                            iconName: "folder",
+                            text: "GitHub",
+                            href: "https://github.com/your-username",
+                            external: true
                         }
                     ]}
                     i18nStrings={{
@@ -55,10 +60,31 @@ export default function Layout({ children }: LayoutProps) {
                             }
                         }}
                         items={[
-                            { type: "link", text: "Home", href: "/" },
+                            { type: "link", text: "Dashboard", href: "/" }, 
+                            { type: "divider" },
                             { type: "link", text: "Projects", href: "/projects" },
-                            { type: "link", text: "About", href: "/about" },
-                            { type: "link", text: "Contact", href: "/contact" }
+                            { type: "link", text: "Experience", href: "/experience" }, 
+                            { type: "link", text: "Profile", href: "/profile" }, 
+                            { type: "divider" },
+                            {
+                                type: "link",
+                                text: "View Repo",
+                                href: "https://github.com/jaylee-portfolio",
+                                external: true
+                            },
+                            { type: "divider" },
+                            {
+                                type: "link",
+                                text: "LinkedIn",
+                                href: "https://www.linkedin.com/in/jayjonglee", 
+                                external: true
+                            },
+                            {
+                                type: "link",
+                                text: "GitHub",
+                                href: "https://github.com/jaylee1021",
+                                external: true
+                            }
                         ]}
                     />
                 }
