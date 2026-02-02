@@ -1,5 +1,7 @@
 import { AppLayout, SideNavigation, TopNavigation } from '@cloudscape-design/components';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Footer from "./Footer";
+import jayLogo from "../assets/jay_logo.png";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -16,6 +18,10 @@ export default function Layout({ children }: LayoutProps) {
                     identity={{
                         href: "/",
                         title: "Jay Lee",
+                        logo: {
+                            src: jayLogo,
+                            alt: "Jay Lee"
+                        },
                         onFollow: (e) => {
                             e.preventDefault();
                             navigate("/");
@@ -33,7 +39,7 @@ export default function Layout({ children }: LayoutProps) {
                             type: "button",
                             iconName: "folder",
                             text: "GitHub",
-                            href: "https://github.com/your-username",
+                            href: "https://github.com/jaylee1021",
                             external: true
                         }
                     ]}
@@ -52,7 +58,7 @@ export default function Layout({ children }: LayoutProps) {
                 navigation={
                     <SideNavigation
                         activeHref={location.pathname}
-                        header={{ href: "/", text: "Jay" }}
+                        header={{ href: "/", text: "System Modules" }}
                         onFollow={event => {
                             if (!event.detail.external) {
                                 event.preventDefault();
@@ -60,36 +66,62 @@ export default function Layout({ children }: LayoutProps) {
                             }
                         }}
                         items={[
-                            { type: "link", text: "Dashboard", href: "/" }, 
-                            { type: "divider" },
-                            { type: "link", text: "Projects", href: "/projects" },
-                            { type: "link", text: "Experience", href: "/experience" }, 
-                            { type: "link", text: "Profile", href: "/profile" }, 
-                            { type: "divider" },
                             {
-                                type: "link",
-                                text: "View Repo",
-                                href: "https://github.com/jaylee-portfolio",
-                                external: true
+                                type: "section-group",
+                                title: "Runtime Operations",
+                                items: [
+                                    { type: "link", text: "Dashboard", href: "/" }
+                                ]
                             },
+
                             { type: "divider" },
+
                             {
-                                type: "link",
-                                text: "LinkedIn",
-                                href: "https://www.linkedin.com/in/jayjonglee", 
-                                external: true
+                                type: "section-group",
+                                title: "System Resources",
+                                items: [
+                                    { type: "link", text: "Projects", href: "/projects" },
+                                    { type: "link", text: "Experience", href: "/experience" },
+                                    { type: "link", text: "Profile", href: "/profile" }
+                                ]
                             },
+
+                            { type: "divider" },
+
                             {
-                                type: "link",
-                                text: "GitHub",
-                                href: "https://github.com/jaylee1021",
-                                external: true
+                                type: "section-group",
+                                title: "Network Uplinks",
+                                items: [
+                                    {
+                                        type: "link",
+                                        text: "View Source Code",
+                                        href: "https://github.com/jaylee1021/jaylee-portfolio",
+                                        external: true
+                                    },
+                                    {
+                                        type: "link",
+                                        text: "LinkedIn Profile",
+                                        href: "https://www.linkedin.com/in/jayjonglee",
+                                        external: true
+                                    },
+                                    {
+                                        type: "link",
+                                        text: "GitHub Profile",
+                                        href: "https://github.com/jaylee1021",
+                                        external: true
+                                    }
+                                ]
                             }
                         ]}
                     />
                 }
                 toolsHide={true}
-                content={children}
+                content={
+                    <>
+                        {children}
+                        <Footer />
+                    </>
+                }
             />
         </>
     );
