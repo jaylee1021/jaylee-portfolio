@@ -15,14 +15,14 @@ const eventsData = [
         description: "Deployed personal brand console using React, TypeScript, Cloudscape, and Cloudflare Pages.",
         date: "Jan, 2026",
         status: "Live",
-        statusType: "success" // green
+        statusType: "success" 
     },
     {
         title: "AWS Role Concluded",
         description: "Impacted by org-wide workforce reduction (RIF). Engineer returned to liquidity pool.",
         date: "Feb, 2026",
         status: "Incident Resolved",
-        statusType: "info" // blue/grey
+        statusType: "info" 
     },
     {
         title: "Migration: Prime Air to AWS",
