@@ -1,7 +1,7 @@
 import { AppLayout, SideNavigation, TopNavigation } from '@cloudscape-design/components';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./Footer";
-import jayLogo from "../assets/jay_logo.png";
+import jayLogo from "../assets/Jay_logo.png";
 
 interface LayoutProps {
     children: React.ReactNode;
