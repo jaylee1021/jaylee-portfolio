@@ -12,32 +12,31 @@ export default function UsageLimits() {
             </Header>}>
             <SpaceBetween size="l">
 
-                {/* 1. 3D PRINTING (Keeping this as requested) */}
-                <div>
+                <Box>
                     <Box variant="awsui-key-label">3D Filament Consumption</Box>
-                    <div>2.5 kg / month</div>
+                    <Box variant="p">2.5 kg / month</Box>
                     <Box variant="small" color="text-body-secondary">
                         Bambu Lab X1C
                     </Box>
-                </div>
+                </Box>
 
-                {/* 2. REPLACEMENT: COMPUTE NODE (Was Car) */}
-                <div>
+                <Box>
                     <Box variant="awsui-key-label">Compute Node</Box>
-                    <StatusIndicator type="success">Online</StatusIndicator>
-                    <Box variant="small" color="text-body-secondary">
-                        Apple Silicon / macOS Tahoe
-                    </Box>
-                </div>
+                    <SpaceBetween size="xxs" direction="horizontal">
+                        <StatusIndicator type="success">Online</StatusIndicator>
+                        <Box variant="small" color="text-body-secondary">
+                            Apple Silicon / macOS Tahoe
+                        </Box>
+                    </SpaceBetween>
+                </Box>
 
-                {/* 3. REPLACEMENT: LOCALES (Was Coffee) */}
-                <div>
+                <Box>
                     <Box variant="awsui-key-label">Supported Locales</Box>
-                    <div>en-US, ko-KR</div>
+                    <Box variant="p">en-US, ko-KR</Box>
                     <Box variant="small" color="text-body-secondary">
                         Bilingual Support
                     </Box>
-                </div>
+                </Box>
 
             </SpaceBetween>
         </Container>
