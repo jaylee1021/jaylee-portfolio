@@ -53,7 +53,7 @@ const eventsData = [
         statusType: "info"
     },
     {
-        title: "System Initialization",
+        title: "System Initialization (U.S. Army)",
         description: "Initial boot sequence. Deployed to U.S. Army (Active Duty). Acquired core discipline dependencies.",
         date: "Apr, 2012",
         status: "Completed",
