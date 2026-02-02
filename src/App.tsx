@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Experience from './pages/Experience';
-import Profile from './pages/Profile';
+import Biography from './pages/Biography';
 import Contact from './pages/Contact';
 import "./App.css";
 
@@ -17,7 +17,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/experience" element={<Experience />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/biography" element={<Biography />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

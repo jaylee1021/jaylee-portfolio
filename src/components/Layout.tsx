@@ -82,7 +82,7 @@ export default function Layout({ children }: LayoutProps) {
                                 items: [
                                     { type: "link", text: "Projects", href: "/projects" },
                                     { type: "link", text: "Experience", href: "/experience" },
-                                    { type: "link", text: "Profile", href: "/profile" }
+                                    { type: "link", text: "Biography", href: "/biography" }
                                 ]
                             },
 
