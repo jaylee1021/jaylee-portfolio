@@ -2,6 +2,7 @@
 import { Cards, Header, ContentLayout, Link, Box, TextFilter, Pagination } from '@cloudscape-design/components';
 import { useCollection } from '@cloudscape-design/collection-hooks';
 import { PROJECT_DATA } from '../data/projects';
+import SEO from '../components/SEO';
 
 export default function Projects() {
     const { items, filteredItemsCount, collectionProps, filterProps, paginationProps } = useCollection(
@@ -33,6 +34,7 @@ export default function Projects() {
                 <Header variant="h1">Projects</Header>
             }
         >
+            <SEO title="Projects | Jay Lee" description="Explore my software engineering portfolio including Cloudscape apps, React projects, and system tools." />
             <Cards
                 {...collectionProps}
                 ariaLabels={{

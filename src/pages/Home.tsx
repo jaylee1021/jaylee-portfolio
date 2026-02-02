@@ -11,6 +11,8 @@ import RuntimeConfig from "../components/RuntimeConfig";
 import EventLog from "../components/EventLog";
 import UsageLimits from "../components/UsageLimits";
 
+import SEO from "../components/SEO";
+
 export default function Dashboard() {
 
     return (
@@ -19,21 +21,12 @@ export default function Dashboard() {
                 <Header variant="h1">Dashboard</Header>
             }
         >
+            <SEO title="Dashboard | Jay Lee" description="Jay Lee's engineering portfolio dashboard featuring system health, resource overview, and event logs." />
             <SpaceBetween size="l">
-                {/* 1. SERVICE HEALTH (Your Availability) */}
                 <SystemHealth />
-
-                {/* 2. RESOURCE OVERVIEW (Hard Skills Metrics) */}
                 <ResourceOverview />
-
-
-                {/* 3. BOTTOM ROW: ACTIVITY LOG & PERSONALITY STATS */}
                 <Grid gridDefinition={[{ colspan: { default: 12, s: 8 } }, { colspan: { default: 12, s: 4 } }]}>
-                    {/* LEFT: Recent Activity Log */}
-
                     <RuntimeConfig />
-
-                    {/* RIGHT: Cost & Usage (Personality) */}
                     <UsageLimits />
                 </Grid>
                 <EventLog />

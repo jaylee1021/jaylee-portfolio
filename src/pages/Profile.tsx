@@ -1,21 +1,17 @@
 
 import { Container, Header, ContentLayout } from '@cloudscape-design/components';
+import SEO from '../components/SEO';
 
 export default function Profile() {
     return (
         <ContentLayout
             header={
-                <Header variant="h1">About Me</Header>
+                <Header variant="h1">Profile</Header>
             }
         >
+            <SEO title="Profile | Jay Lee" description="About Jay Lee - Frontend Engineer and UAS Operator." />
             <Container>
-                <Header variant="h2">Biography</Header>
-                <p>
-                    I am a passionate software engineer with experience in full-stack development.
-                </p>
-                <p>
-                    I love building scalable applications and intuitive user interfaces.
-                </p>
+                <p>Content coming soon...</p>
             </Container>
         </ContentLayout>
     );

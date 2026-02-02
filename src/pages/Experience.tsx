@@ -9,6 +9,7 @@ import {
     ExpandableSection,
     ContentLayout
 } from "@cloudscape-design/components";
+import SEO from "../components/SEO";
 
 // Helper for consistency
 const TechBadge = ({ children }: { children: React.ReactNode }) => (
@@ -22,6 +23,7 @@ export default function Experience() {
                 <Header variant="h1">Experience</Header>
             }
         >
+            <SEO title="Experience | Jay Lee" description="Jay Lee's professional experience at AWS, Amazon Prime Air, and U.S. Army." />
             <SpaceBetween size="l">
                 {/* LATEST VERSION: AWS */}
                 <Container

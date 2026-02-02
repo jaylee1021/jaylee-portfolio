@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { ContentLayout, Header, Alert, Link } from '@cloudscape-design/components';
 import ProjectDetails from '../components/ProjectDetails';
 import { PROJECT_DATA } from '../data/projects';
+import SEO from '../components/SEO';
 
 export default function ProjectDetail() {
     const { projectId } = useParams();
@@ -34,6 +35,7 @@ export default function ProjectDetail() {
                 </Header>
             }
         >
+            <SEO title={`${project.name} | Jay Lee`} description={project.description} />
             <ProjectDetails project={project} />
         </ContentLayout>
     );
