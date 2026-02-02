@@ -1,5 +1,5 @@
 
-import { Container, Header, ColumnLayout, Box, StatusIndicator } from "@cloudscape-design/components";
+import { Container, Header, ColumnLayout, Box, StatusIndicator, Link } from "@cloudscape-design/components";
 
 export default function SystemHealth() {
     return (
@@ -13,24 +13,32 @@ export default function SystemHealth() {
                 </Header>
             }
         >
-            <ColumnLayout columns={4} variant="text-grid">
-                <div>
+            <ColumnLayout columns={3} variant="text-grid">
+                <Box>
                     <Box variant="awsui-key-label">Status</Box>
                     <StatusIndicator type="success">Available for Hire</StatusIndicator>
-                </div>
-                <div>
-                    <Box variant="awsui-key-label">Location</Box>
-                    <div>Seattle, WA</div>
-                </div>
-                <div>
+                </Box>
+                <Box>
                     <Box variant="awsui-key-label">Role</Box>
-                    <div>Frontend Engineer</div>
-                </div>
-                <div>
+                    <Box variant="p">Frontend Engineer</Box>
+                </Box>
+                <Box>
                     <Box variant="awsui-key-label">Latest Incident</Box>
-                    <div>Amazon Layoff (Resolved)</div>
-                </div>
+                    <Box variant="p">Amazon Layoff (Resolved)</Box>
+                </Box>
+                <Box>
+                    <Box variant="awsui-key-label">Location</Box>
+                    <Box variant="p">Seattle, WA</Box>
+                </Box>
+                <Box>
+                    <Box variant="awsui-key-label">Phone number</Box>
+                    <Box variant="p">253-355-6520</Box>
+                </Box>
+                <Box>
+                    <Box variant="awsui-key-label">Email</Box>
+                    <Link href="mailto:leejayjong@gmail.com">leejayjong@gmail.com</Link>
+                </Box>
             </ColumnLayout>
         </Container>
     )
-}
+}   
