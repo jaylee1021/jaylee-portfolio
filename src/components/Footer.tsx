@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "@cloudscape-design/components/box";
 import StatusIndicator from "@cloudscape-design/components/status-indicator";
 
