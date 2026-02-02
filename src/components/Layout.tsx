@@ -1,4 +1,4 @@
-import { AppLayout, SideNavigation, TopNavigation } from '@cloudscape-design/components';
+import { AppLayout, SideNavigation, SpaceBetween, TopNavigation } from '@cloudscape-design/components';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./Footer";
 import jayLogo from "../assets/Jay_logo.png";
@@ -117,10 +117,10 @@ export default function Layout({ children }: LayoutProps) {
                 }
                 toolsHide={true}
                 content={
-                    <>
+                    <SpaceBetween size="l">
                         {children}
                         <Footer />
-                    </>
+                    </SpaceBetween>
                 }
             />
         </>
