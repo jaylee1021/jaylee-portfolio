@@ -1,5 +1,15 @@
-
-import { Cards, Header, ContentLayout, Link, Box, TextFilter, Pagination } from '@cloudscape-design/components';
+import { 
+    Cards, 
+    Header, 
+    ContentLayout, 
+    Link, 
+    Box, 
+    TextFilter, 
+    Pagination, 
+    Badge, 
+    Button, 
+    SpaceBetween 
+} from '@cloudscape-design/components';
 import { useCollection } from '@cloudscape-design/collection-hooks';
 import { PROJECT_DATA } from '../data/projects';
 import SEO from '../components/SEO';
@@ -18,7 +28,7 @@ export default function Projects() {
                     <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
                         <b>No matches found</b>
                         <Box variant="p" color="inherit">
-                            We can't find a match.
+                            Try searching for "React", "AWS", or "TypeScript".
                         </Box>
                     </Box>
                 ),
@@ -31,16 +41,31 @@ export default function Projects() {
     return (
         <ContentLayout
             header={
-                <Header variant="h1">Projects</Header>
+                <Header 
+                    variant="h1" 
+                    description="A catalog of personal applications, tools, and experiments."
+                >
+                    Projects Repository
+                </Header>
             }
         >
-            <SEO title="Projects | Jay Lee" description="Explore my software engineering portfolio including Cloudscape apps, React projects, and system tools." />
+            <SEO title="Projects | Jay Lee" description="Explore my software engineering portfolio." />
+            
             <Cards
                 {...collectionProps}
+                stickyHeader={false} 
+                variant="full-page"
                 ariaLabels={{
                     itemSelectionLabel: (_, t) => `select ${t.name}`,
                     selectionGroupLabel: "Item selection"
                 }}
+                
+                cardsPerRow={[
+                    { cards: 1 },
+                    { minWidth: 600, cards: 2 },
+                    { minWidth: 1000, cards: 2 }
+                ]}
+
                 cardDefinition={{
                     header: item => (
                         <Link href={`/projects/${item.id}`} fontSize="heading-m">
@@ -49,43 +74,100 @@ export default function Projects() {
                     ),
                     sections: [
                         {
+                            id: "image",
+                            content: item => (
+                                <div 
+                                    style={{ 
+                                        height: "180px", 
+                                        backgroundColor: "#f2f3f3", 
+                                        borderRadius: "8px",
+                                        overflow: "hidden",
+                                        marginBottom: "12px",
+                                        border: "1px solid #eaeded"
+                                    }}
+                                >
+                                    <img 
+                                        src={item.img} 
+                                        alt={item.name} 
+                                        style={{ 
+                                            width: "100%", 
+                                            height: "100%", 
+                                            objectFit: "cover" 
+                                        }} 
+                                    />
+                                </div>
+                            )
+                        },
+                        {
                             id: "description",
-                            header: "Description",
-                            content: item => item.description
+                            content: item => (
+                                <Box variant="p" color="text-body-secondary">
+                                    {item.description}
+                                </Box>
+                            )
                         },
                         {
                             id: "tech",
-                            header: "Technologies",
-                            content: item => item.tech
+                            content: item => (
+                                <SpaceBetween direction="horizontal" size="xs">
+                                    {item.tech.map((tech) => (
+                                        <Badge key={tech} color="blue">
+                                            {tech}
+                                        </Badge>
+                                    ))}
+                                </SpaceBetween>
+                            )
+                        },
+                        {
+                            id: "actions",
+                            content: item => (
+                                <Box margin={{ top: "s" }}>
+                                    <SpaceBetween direction="horizontal" size="s">
+                                        <Button 
+                                            iconName="external" 
+                                            href={item.demoUrl} 
+                                            target="_blank"
+                                        >
+                                            Live Demo
+                                        </Button>
+                                        <Button 
+                                            iconName="script" 
+                                            href={item.repoUrl}
+                                            target="_blank" 
+                                            variant="normal"
+                                        >
+                                            Source
+                                        </Button>
+                                    </SpaceBetween>
+                                </Box>
+                            )
                         }
                     ]
                 }}
-                cardsPerRow={[
-                    { cards: 1 },
-                    { minWidth: 500, cards: 1 }
-                ]}
+                
                 items={items}
                 loading={false}
-                stickyHeader
-                variant="full-page"
-                totalItemsCount={PROJECT_DATA.length}
+                
                 empty={
                     <Box margin={{ vertical: "xs" }} textAlign="center" color="inherit">
                         <b>No projects found</b>
                     </Box>
                 }
+                
                 filter={
                     <TextFilter
                         {...filterProps}
-                        filteringPlaceholder="Search projects by name or technology"
+                        filteringPlaceholder="Search by name or tech stack (e.g. 'React')"
                         countText={`${filteredItemsCount} matches`}
                     />
                 }
+                
                 header={
-                    <Header variant="h2" counter={`(${filteredItemsCount}/${PROJECT_DATA.length})`}>
-                        Projects List
+                    <Header variant="h2" counter={`(${filteredItemsCount})`}>
+                        Deployed Applications
                     </Header>
                 }
+                
                 pagination={
                     <Pagination {...paginationProps} />
                 }
