@@ -4,7 +4,8 @@ import {
     ContentLayout,
     Grid,
     SpaceBetween,
-    Box
+    Box,
+    Link,
 } from '@cloudscape-design/components';
 import SEO from '../components/SEO';
 
@@ -40,6 +41,8 @@ export default function Biography() {
                             />
                             <Box variant="h2" padding={{ top: "m" }}>Jay Lee</Box>
                             <Box color="text-body-secondary">Frontend Engineer</Box>
+                            <Box color="text-body-secondary">Seattle, WA</Box>
+                            <Box color="text-body-secondary">Open to new opportunities</Box>
                         </Box>
                     </SpaceBetween>
                 </Container>
@@ -66,6 +69,9 @@ export default function Biography() {
                         <Box variant="p">
                             Today, I build intuitive, high-performance web applications using modern technologies like <strong>React, TypeScript</strong>, and the Cloudscape Design System.
                             I love turning complex requirements into clean, user-friendly interfaces.
+                        </Box>
+                        <Box variant="p">
+                            For a detailed breakdown of my technical history, you can download my <strong><Link href="/resume/Jay_Lee_Resume.pdf" target="_blank">resume (PDF)</Link></strong> or view my <strong><Link href="/experience">experience</Link></strong>.
                         </Box>
                     </SpaceBetween>
                 </Container>
