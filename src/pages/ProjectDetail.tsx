@@ -21,22 +21,9 @@ export default function ProjectDetail() {
     }
 
     return (
-        <ContentLayout
-            header={
-                <Header
-                    variant="h1"
-                    actions={
-                        <Link href="/projects" variant="primary">
-                            Back to Projects
-                        </Link>
-                    }
-                >
-                    {project.name}
-                </Header>
-            }
-        >
+        <>
             <SEO title={`${project.name} | Jay Lee`} description={project.description} />
             <ProjectDetails project={project} />
-        </ContentLayout>
+        </>
     );
 }
