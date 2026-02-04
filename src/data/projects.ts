@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectProps {
     id: string;
     name: string;
     description: string;
@@ -11,7 +11,7 @@ export interface Project {
     architecture?: string;
 }
 
-export const PROJECT_DATA: Project[] = [
+export const PROJECT_DATA: ProjectProps[] = [
     {
         id: "portfolio-website",
         name: "Portfolio Website",
