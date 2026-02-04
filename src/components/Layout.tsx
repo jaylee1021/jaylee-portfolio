@@ -1,4 +1,4 @@
-import { AppLayout, SideNavigation, SpaceBetween, TopNavigation } from '@cloudscape-design/components';
+import { AppLayout, Badge, SideNavigation, SpaceBetween, TopNavigation } from '@cloudscape-design/components';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from "./Footer";
 import jayLogo from "../assets/Jay_logo.png";
@@ -80,7 +80,14 @@ export default function Layout({ children }: LayoutProps) {
                                 items: [
                                     { type: "link", text: "Projects", href: "/projects" },
                                     { type: "link", text: "Experience", href: "/experience" },
-                                    { type: "link", text: "Biography", href: "/biography" }
+                                    { type: "link", text: "Biography", href: "/biography" },
+                                    {
+                                        type: "link",
+                                        text: "Download Resume.bin",
+                                        href: "/resume/Jay_Lee_Resume.pdf",
+                                        external: true,
+                                        info: <Badge color="blue">v2026.02</Badge>
+                                    }
                                 ]
                             },
 
