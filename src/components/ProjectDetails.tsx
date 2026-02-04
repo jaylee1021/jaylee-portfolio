@@ -9,10 +9,10 @@ import {
     ColumnLayout,
     StatusIndicator
 } from '@cloudscape-design/components';
-import type { Project } from '../data/projects';
+import type { ProjectProps } from '../data/projects';
 
 interface ProjectDetailsProps {
-    project: Project;
+    project: ProjectProps;
 }
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
