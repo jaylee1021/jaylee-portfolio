@@ -13,46 +13,44 @@ export default function Layout({ children }: LayoutProps) {
 
     return (
         <>
-            <div id="h" style={{ position: 'sticky', top: 0, zIndex: 1001 }}>
-                <TopNavigation
-                    identity={{
-                        href: "/",
-                        title: "Jay Lee",
-                        logo: {
-                            src: jayLogo,
-                            alt: "Jay Lee"
-                        },
-                        onFollow: (e) => {
-                            e.preventDefault();
-                            navigate("/");
-                        }
-                    }}
-                    utilities={[
-                        {
-                            type: "button",
-                            iconName: "share",
-                            text: "LinkedIn",
-                            href: "https://www.linkedin.com/in/jayjonglee",
-                            external: true
-                        },
-                        {
-                            type: "button",
-                            iconName: "folder",
-                            text: "GitHub",
-                            href: "https://github.com/jaylee1021",
-                            external: true
-                        }
-                    ]}
-                    i18nStrings={{
-                        searchIconAriaLabel: "Search",
-                        searchDismissIconAriaLabel: "Close search",
-                        overflowMenuTriggerText: "More",
-                        overflowMenuTitleText: "All",
-                        overflowMenuBackIconAriaLabel: "Back",
-                        overflowMenuDismissIconAriaLabel: "Close menu"
-                    }}
-                />
-            </div>
+            <TopNavigation
+                identity={{
+                    href: "/",
+                    title: "Jay Lee",
+                    logo: {
+                        src: jayLogo,
+                        alt: "Jay Lee"
+                    },
+                    onFollow: (e) => {
+                        e.preventDefault();
+                        navigate("/");
+                    }
+                }}
+                utilities={[
+                    {
+                        type: "button",
+                        iconName: "share",
+                        text: "LinkedIn",
+                        href: "https://www.linkedin.com/in/jayjonglee",
+                        external: true
+                    },
+                    {
+                        type: "button",
+                        iconName: "folder",
+                        text: "GitHub",
+                        href: "https://github.com/jaylee1021",
+                        external: true
+                    }
+                ]}
+                i18nStrings={{
+                    searchIconAriaLabel: "Search",
+                    searchDismissIconAriaLabel: "Close search",
+                    overflowMenuTriggerText: "More",
+                    overflowMenuTitleText: "All",
+                    overflowMenuBackIconAriaLabel: "Back",
+                    overflowMenuDismissIconAriaLabel: "Close menu"
+                }}
+            />
             <AppLayout
                 contentType="default"
                 navigation={
