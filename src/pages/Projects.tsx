@@ -39,16 +39,7 @@ export default function Projects() {
     );
 
     return (
-        <ContentLayout
-            header={
-                <Header 
-                    variant="h1" 
-                    description="A catalog of personal applications, tools, and experiments."
-                >
-                    Projects Repository
-                </Header>
-            }
-        >
+        <ContentLayout>
             <SEO title="Projects | Jay Lee" description="Explore my software engineering portfolio." />
             
             <Cards
@@ -163,7 +154,7 @@ export default function Projects() {
                 }
                 
                 header={
-                    <Header variant="h2" counter={`(${filteredItemsCount})`}>
+                    <Header variant="h1" counter={`(${filteredItemsCount})`}>
                         Deployed Applications
                     </Header>
                 }
