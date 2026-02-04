@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
     Container,
     Header,
@@ -7,16 +7,61 @@ import {
     Box,
     ColumnLayout,
     ExpandableSection,
-    ContentLayout
+    ContentLayout,
+    TextContent
 } from "@cloudscape-design/components";
 import SEO from "../components/SEO";
-
-// Helper for consistency
-const TechBadge = ({ children }: { children: React.ReactNode }) => (
-    <Badge color="blue">{children}</Badge>
-);
+import { EXPERIENCE_DATA } from "../data/experience";
+import type { ExperienceProps } from "../data/experience";
 
 export default function Experience() {
+
+    const innerContent = (experience: ExperienceProps) => (
+        <SpaceBetween size="m">
+            <ColumnLayout columns={3} variant="text-grid">
+                {experience.team && (
+                    <Box>
+                        <Box variant="awsui-key-label">Team</Box>
+                        <Box>{experience.team}</Box>
+                    </Box>
+                )}
+                {experience.focus && (
+                    <Box>
+                        <Box variant="awsui-key-label">Focus</Box>
+                        <Box>{experience.focus}</Box>
+                    </Box>
+                )}
+                <Box>
+                    <Box variant="awsui-key-label">Duration</Box>
+                    <Box>{experience.startDate} — {experience.endDate}</Box>
+                </Box>
+                <Box>
+                    <Box variant="awsui-key-label">Location</Box>
+                    <Box>{experience.location}</Box>
+                </Box>
+            </ColumnLayout>
+            <Box>
+                <SpaceBetween direction="horizontal" size="xs">
+                    {experience.skills.map((skill) => (
+                        <Badge color="blue" key={skill}>{skill}</Badge>
+                    ))}
+                </SpaceBetween>
+            </Box>
+            {experience.isCurrent && (
+                <Box variant="h4">Changelog & Feature Delivery</Box>
+            )}
+            <TextContent>
+                <ul style={{ margin: 0, color: "#5f6b7a" }}>
+                    {Object.entries(experience.bullets).map(([key, value], index) => (
+                        <li style={{ marginBottom: "8px" }} key={index}>
+                            <strong style={{ color: "#16191f" }}>{key}:</strong> {value}
+                        </li>
+                    ))}
+                </ul>
+            </TextContent>
+        </SpaceBetween>
+    );
+
     return (
         <ContentLayout
             header={
@@ -25,239 +70,42 @@ export default function Experience() {
         >
             <SEO title="Experience | Jay Lee" description="Jay Lee's professional experience at AWS, Amazon Prime Air, and U.S. Army." />
             <SpaceBetween size="l">
-                <Container
-                    header={
-                        <Header
-                            variant="h2"
-                            actions={<Badge color="green">Current Version</Badge>}
-                        >
-                            Frontend Engineer | AWS
-                        </Header>
+                {EXPERIENCE_DATA.map((experience, index) => {
+                    const isLegacy = index >= 2;
+
+                    if (isLegacy) {
+                        return (
+                            <ExpandableSection
+                                variant="container"
+                                headerText={`${experience.role} | ${experience.company}`}
+                                headerActions={<Badge color="grey">Legacy Support</Badge>}
+                            >
+                                {innerContent(experience)}
+                            </ExpandableSection>
+                        );
                     }
-                >
-                    <SpaceBetween size="m">
-                        <ColumnLayout columns={3} variant="text-grid">
-                            <Box>
-                                <Box variant="awsui-key-label">Team</Box>
-                                <Box>CloudFormation Console</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Duration</Box>
-                                <Box>Dec 2024 — Present</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Location</Box>
-                                <Box>Seattle, WA</Box>
-                            </Box>
-                        </ColumnLayout>
 
-                        <Box>
-                            <SpaceBetween direction="horizontal" size="xs">
-                                <TechBadge>TypeScript/JavaScript</TechBadge>
-                                <TechBadge>React.js</TechBadge>
-                                <TechBadge>Next.js</TechBadge>
-                                <TechBadge>Node.js</TechBadge>
-                                <TechBadge>Redux</TechBadge>
-                                <TechBadge>Cloudscape</TechBadge>
-                                <TechBadge>Figma</TechBadge>
-                                <TechBadge>Jest</TechBadge>
-                                <TechBadge>WCAG 2.2</TechBadge>
-                            </SpaceBetween>
-                        </Box>
-
-                        <Box variant="h4">Changelog & Feature Delivery</Box>
-
-                        <ul style={{ margin: 0, paddingInlineStart: "20px", color: "#5f6b7a" }}>
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Feature Implementation:</strong> Engineered a custom responsive split-panel architecture for the CloudFormation Console, resolving the #1 reported customer UX issue.
-                            </li>
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>System Migration:</strong> Migrated 600+ legacy files to the modern Cloudscape Design System in 4 days, driving measurable improvements in rendering speed.
-                            </li>
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Compliance Patching:</strong> Led an accessibility campaign resolving 230+ WCAG 2.1/2.2 violations, implementing ARIA roles and semantic HTML alignment.
-                            </li>
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Service Lifecycle Management:</strong> Delivered frontend strategy for AWS Proton deprecation, including global notification banners and logic-based access restrictions.
-                            </li>
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Runtime Stabilization:</strong> Resolved 50+ backlogged tickets and console errors by refactoring UI components and establishing robust error handling patterns.
-                            </li>
-                            <li>
-                                <strong style={{ color: "#16191f" }}>Prototyping:</strong> Accelerated feature alignment by creating interactive Figma prototypes for complex console interactions.
-                            </li>
-                        </ul>
-                    </SpaceBetween>
-                </Container>
-
-                <Container
-                    header={
-                        <Header
-                            variant="h2"
-                            actions={<Badge color="grey">Legacy Support</Badge>}
+                    return (
+                        <Container
+                            key={index}
+                            header={
+                                <Header
+                                    variant="h2"
+                                    actions={
+                                        experience.isCurrent ?
+                                            <Badge color="green">Current Version</Badge>
+                                            :
+                                            <Badge color="grey">Legacy Support</Badge>
+                                    }
+                                >
+                                    {experience.role} | {experience.company}
+                                </Header>
+                            }
                         >
-                            Lead Drone Maintenance Technician | Amazon Prime Air
-                        </Header>
-                    }
-                >
-                    <SpaceBetween size="m">
-                        <ColumnLayout columns={3} variant="text-grid">
-                            <Box>
-                                <Box variant="awsui-key-label">Focus</Box>
-                                <Box>Maintenance Operations & R&D</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Duration</Box>
-                                <Box>Sep 2019 — Dec 2024</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Location</Box>
-                                <Box>Seattle, WA</Box>
-                            </Box>
-                        </ColumnLayout>
-
-                        <Box>
-                            <SpaceBetween direction="horizontal" size="xs">
-                                <TechBadge>Maintenance Operations</TechBadge>
-                                <TechBadge>R&D</TechBadge>
-                                <TechBadge>Linux</TechBadge>
-                                <TechBadge>Hardware Troubleshooting</TechBadge>
-                                <TechBadge>Mission Critical Systems</TechBadge>
-                                <TechBadge>Jira</TechBadge>
-                                <TechBadge>Confluence</TechBadge>
-                            </SpaceBetween>
-                        </Box>
-
-                        <ul style={{ margin: 0, paddingInlineStart: "20px", color: "#5f6b7a" }}>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Internal Tooling:</strong> Developed and maintained a custom Quip-based fleet tracking system to monitor software versions, configuration state, and readiness for 25+ high-value UAV assets.
-                            </li>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Incident Response:</strong> Expedited system issue escalations, optimizing aircraft availability and minimizing downtime.
-                            </li>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Team Leadership:</strong> Led a 6-person technical unit, setting daily operational priorities and providing technical guidance to ensure high-quality execution in a safety-critical environment.
-                            </li>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>QA & Compliance:</strong> Served as RII (Required Inspection Item) Inspector, validating airworthiness, configuration conformity, and adherence to FAA-aligned maintenance standards.
-                            </li>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>R&D Integration:</strong> Installed test instrumentation and prototype hardware for engineering validation, directly supporting flight test campaigns and reliability investigations.
-                            </li>
-
-                            <li>
-                                <strong style={{ color: "#16191f" }}>Process Documentation:</strong> Developed Standard Operating Procedures (SOPs) and maintenance programs, training 10+ technicians on troubleshooting workflows and best practices.
-                            </li>
-
-                        </ul>
-                    </SpaceBetween>
-                </Container>
-
-                <ExpandableSection
-                    headerText="Site Lead & Maintenance Lead | Textron Systems"
-                    variant="container"
-                >
-                    {/* <Box variant="h3">Site Lead & Maintenance Lead | Textron Systems</Box> */}
-                    <SpaceBetween size="m">
-                        <ColumnLayout columns={3} variant="text-grid">
-                            <Box>
-                                <Box variant="awsui-key-label">Focus</Box>
-                                <Box>Flight Operations & Maintenance</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Duration</Box>
-                                <Box>Sep 2017 — Sep 2019</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Location</Box>
-                                <Box>Afghanistan</Box>
-                            </Box>
-                        </ColumnLayout>
-
-                        <Box>
-                            <SpaceBetween direction="horizontal" size="xs">
-                                <TechBadge>Linux</TechBadge>
-                                <TechBadge>Hardware Debugging</TechBadge>
-                                <TechBadge>Mission Critical Systems</TechBadge>
-                                <TechBadge>Jira</TechBadge>
-                                <TechBadge>Confluence</TechBadge>
-                            </SpaceBetween>
-                        </Box>
-                        <ul style={{ margin: 0, paddingInlineStart: "20px", color: "#5f6b7a" }}>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Site Reliability:</strong> Directed day-to-day site operations and personnel resource scheduling, acting as the primary customer interface to ensure mission SLAs were met.
-                            </li>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Data Telemetry:</strong> Managed secure data pipelines (SFTP) and centralized fleet logging systems (COLTS), ensuring data integrity for flight telemetry and asset tracking.
-                            </li>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Protocol Enforcement:</strong> Enforced strict adherence to Standard Operating Procedures (SOPs) and AOTM compliance, maintaining a 100% operational readiness state.
-                            </li>
-
-                            <li>
-                                <strong style={{ color: "#16191f" }}>Mission Execution:</strong> Conducted full-lifecycle flight operations—from pre-flight risk assessment to hardware diagnostics—for Aerosonde UAS platforms in deployed environments.
-                            </li>
-
-                        </ul>
-                    </SpaceBetween>
-                </ExpandableSection>
-
-                <ExpandableSection
-                    headerText="UAS Operator & Aircraft Commander | U.S. Army"
-                    variant="container"
-                >
-                    <SpaceBetween size="s">
-                        <ColumnLayout columns={3} variant="text-grid">
-                            <Box>
-                                <Box variant="awsui-key-label">Focus</Box>
-                                <Box>UAS Operations & Training</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Duration</Box>
-                                <Box>Apr 2012 — Aug 2017</Box>
-                            </Box>
-                            <Box>
-                                <Box variant="awsui-key-label">Location</Box>
-                                <Box>South Korea / JBLM, WA</Box>
-                            </Box>
-                        </ColumnLayout>
-
-                        <Box>
-                            <SpaceBetween direction="horizontal" size="xs">
-                                <TechBadge>Linux</TechBadge>
-                                <TechBadge>Hardware Debugging</TechBadge>
-                                <TechBadge>Mission Critical Systems</TechBadge>
-                                <TechBadge>Jira</TechBadge>
-                                <TechBadge>Confluence</TechBadge>
-                            </SpaceBetween>
-                        </Box>
-                        <ul style={{ margin: 0, paddingInlineStart: "20px", color: "#5f6b7a" }}>
-
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Mission Execution:</strong> Led UAS operations as Aircraft Commander, executing 150+ successful missions in dynamic, high-pressure environments.
-                            </li>
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Training Standards:</strong> Trained and certified 25+ personnel on UAS simulators, establishing rigorous safety procedures and operational readiness standards.
-                            </li>
-                            <li style={{ marginBottom: "8px" }}>
-                                <strong style={{ color: "#16191f" }}>Cross-Functional Integration:</strong> Orchestrated complex missions with diverse functional units (intelligence, ground troops), prioritizing real-time communication and tactical synchronization.
-                            </li>
-                            <li>
-                                <strong style={{ color: "#16191f" }}>Unit Readiness:</strong> Mentored unit members and fostered a culture of continuous improvement, enhancing team capabilities and safety standards under strict operational constraints.
-                            </li>
-
-                        </ul>
-
-                    </SpaceBetween>
-                </ExpandableSection>
+                            {innerContent(experience)}
+                        </Container>
+                    );
+                })}
 
                 <ExpandableSection headerText="Education & Certifications" variant="container">
                     <ColumnLayout columns={2} variant="text-grid">
