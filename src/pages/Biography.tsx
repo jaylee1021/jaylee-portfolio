@@ -4,8 +4,7 @@ import {
     ContentLayout,
     Grid,
     SpaceBetween,
-    Box,
-    Badge
+    Box
 } from '@cloudscape-design/components';
 import SEO from '../components/SEO';
 
@@ -26,8 +25,6 @@ export default function Biography() {
                     { colspan: { default: 12, s: 8 } }
                 ]}
             >
-
-                {/* 1. LEFT TOP: Quick Stats & Image */}
                 <Container fitHeight>
                     <SpaceBetween size="l">
                         <Box textAlign="center">
@@ -47,7 +44,6 @@ export default function Biography() {
                     </SpaceBetween>
                 </Container>
 
-                {/* 2. RIGHT TOP: Biography */}
                 <Container header={<Header variant="h2">About Me</Header>} fitHeight>
                     <SpaceBetween size="m">
                         <Box variant="p">
@@ -64,53 +60,66 @@ export default function Biography() {
 
                         <Box variant="p">
                             Realizing that software was the most impactful way to solve problems, I transitioned to a role as a <strong>Frontend Engineer at AWS</strong>.
-                            I worked on the CloudFormation Console, migrating legacy codebases to modern React architectures and improving the user experience for thousands of developers.
+                            I worked on the CloudFormation Console, architecting complex user interfaces that simplified infrastructure management and improving the user experience for thousands of developers.
                         </Box>
 
                         <Box variant="p">
-                            Today, I build intuitive, high-performance web applications using modern technologies like <strong>React, TypeScript, and the Cloudscape Design System</strong>.
+                            Today, I build intuitive, high-performance web applications using modern technologies like <strong>React, TypeScript</strong>, and the Cloudscape Design System.
                             I love turning complex requirements into clean, user-friendly interfaces.
                         </Box>
                     </SpaceBetween>
                 </Container>
 
-                {/* 3. LEFT BOTTOM: Core Competencies */}
-                <Container header={<Header variant="h2">Core Competencies</Header>} fitHeight>
-                    <SpaceBetween size="s">
-                        <Badge color="blue">Cross-Functional Leadership</Badge>
-                        <Badge color="blue">Operational Excellence</Badge>
-                        <Badge color="blue">Incident Management</Badge>
-                        <Badge color="blue">Technical Documentation</Badge>
-                        <Badge color="blue">Mentorship & Training</Badge>
+                <Container header={<Header variant="h2">Education & Certifications</Header>} fitHeight>
+                    <SpaceBetween size="l">
+
+                        <Box>
+                            <Box variant="awsui-key-label">Professional Certification</Box>
+                            <Box variant="p" padding={{ top: "xs" }}>
+                                <strong style={{ color: "#0073bb" }}>PCEP™ – Certified Entry-Level Python Programmer</strong>
+                                <Box variant="small" color="text-body-secondary">
+                                    Python Institute (Feb 2024)
+                                </Box>
+                            </Box>
+                        </Box>
+
+                        <Box>
+                            <Box variant="awsui-key-label">Technical Education</Box>
+                            <Box variant="p" padding={{ top: "xs" }}>
+                                <strong>Software Engineering Immersive</strong>
+                                <Box variant="small" color="text-body-secondary">
+                                    General Assembly (Seattle, WA)
+                                </Box>
+                            </Box>
+                        </Box>
+
                     </SpaceBetween>
                 </Container>
 
-                {/* 4. RIGHT BOTTOM: Technical Philosophy */}
                 <Container header={<Header variant="h2">Technical Philosophy</Header>} fitHeight>
                     <SpaceBetween size="m">
-                        <div>
+                        <Box>
                             <Box variant="strong">User-Centric Design</Box>
                             <Box variant="p" color="text-body-secondary">
                                 Tools should empower users, not get in their way. I prioritize accessibility (WCAG) and intuitive workflows in everything I build.
                             </Box>
-                        </div>
+                        </Box>
 
-                        <div>
-                            <Box variant="strong"> reliability over Complexity</Box>
+                        <Box>
+                            <Box variant="strong"> Reliability over Complexity</Box>
                             <Box variant="p" color="text-body-secondary">
                                 Coming from an aviation background, I value systems that work predictably. I prefer simple, distinct code over "clever" abstractions.
                             </Box>
-                        </div>
+                        </Box>
 
-                        <div>
+                        <Box>
                             <Box variant="strong">Continuous Learning</Box>
                             <Box variant="p" color="text-body-secondary">
-                                Technology moves fast. whether it's mastering the latest React features or learning a new backend framework, I am always expanding my toolkit.
+                                Technology moves fast. Whether it's mastering the latest React features or learning a new backend framework, I am always expanding my toolkit.
                             </Box>
-                        </div>
+                        </Box>
                     </SpaceBetween>
                 </Container>
-
             </Grid>
         </ContentLayout>
     );
