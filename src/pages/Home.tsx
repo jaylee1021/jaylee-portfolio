@@ -3,13 +3,14 @@ import {
     Header,
     Grid,
     SpaceBetween,
-    ContentLayout
+    ContentLayout,
 } from "@cloudscape-design/components";
 import SystemHealth from "../components/SystemHealth";
 import ResourceOverview from "../components/ResourceOverview";
 import RuntimeConfig from "../components/RuntimeConfig";
 import EventLog from "../components/EventLog";
 import UsageLimits from "../components/UsageLimits";
+import PersonnelDoc from "../components/PersonnelDoc";
 
 import SEO from "../components/SEO";
 
@@ -25,6 +26,7 @@ export default function Dashboard() {
             <SpaceBetween size="l">
                 <SystemHealth />
                 <ResourceOverview />
+                <PersonnelDoc />
                 <Grid gridDefinition={[{ colspan: { default: 12, s: 8 } }, { colspan: { default: 12, s: 4 } }]}>
                     <RuntimeConfig />
                     <UsageLimits />

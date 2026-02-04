@@ -1,6 +1,6 @@
 import { Container, Header, Button, ColumnLayout, Box } from "@cloudscape-design/components";
 
-export default function PersonalDoc() {
+export default function PersonnelDoc() {
     return (
         <Container
             header={
