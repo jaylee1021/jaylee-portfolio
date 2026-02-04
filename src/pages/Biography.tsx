@@ -72,11 +72,10 @@ export default function Biography() {
 
                 <Container header={<Header variant="h2">Education & Certifications</Header>} fitHeight>
                     <SpaceBetween size="l">
-
                         <Box>
                             <Box variant="awsui-key-label">Professional Certification</Box>
                             <Box variant="p" padding={{ top: "xs" }}>
-                                <strong style={{ color: "#0073bb" }}>PCEP™ – Certified Entry-Level Python Programmer</strong>
+                                <Box fontWeight='bold' color='text-status-info'>PCEP™ – Certified Entry-Level Python Programmer</Box>
                                 <Box variant="small" color="text-body-secondary">
                                     Python Institute (Feb 2024)
                                 </Box>
@@ -86,9 +85,9 @@ export default function Biography() {
                         <Box>
                             <Box variant="awsui-key-label">Technical Education</Box>
                             <Box variant="p" padding={{ top: "xs" }}>
-                                <strong>Software Engineering Immersive</strong>
+                                <Box fontWeight='bold' color='text-status-info'>Software Engineering Immersive (Full Stack)</Box>
                                 <Box variant="small" color="text-body-secondary">
-                                    General Assembly (Seattle, WA)
+                                    General Assembly (Aug 2023)
                                 </Box>
                             </Box>
                         </Box>
