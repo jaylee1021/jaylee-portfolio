@@ -102,7 +102,7 @@ export default function EventLogTable() {
                     id: "date",
                     header: "Timestamp",
                     cell: item => item.date,
-                    sortingField: "date", // Keeps the UI looking interactive
+                    sortingField: "date",
                     width: 160
                 },
                 {
@@ -113,7 +113,7 @@ export default function EventLogTable() {
                             <Box variant="strong">{item.title}</Box>
                         </div>
                     ),
-                    width: 200,     // <--- Fixed width for the Title
+                    width: 200,
                     minWidth: 200
                 },
                 {
@@ -136,17 +136,16 @@ export default function EventLogTable() {
             items={items}
             loadingText="Loading resources..."
             trackBy="title"
-            variant="container" // Makes it look like a widget
+            variant="container"
             header={
                 <Header
                     variant="h2"
-                    counter={`(${eventsData.length})`} // Adds that "data-dense" feel
+                    counter={`(${eventsData.length})`}
                     description="Chronological record of system modifications and career events."
                 >
                     System Event Log
                 </Header>
             }
-            // Optional: Add dummy controls to make it look even more "App-like"
             filter={
                 <TextFilter
                     {...filterProps}
