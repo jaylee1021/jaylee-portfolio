@@ -57,44 +57,44 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
 
                         <ColumnLayout columns={2} variant="text-grid">
 
-                            <div>
+                            <Box>
                                 <Box variant="awsui-key-label" padding={{ bottom: "xs" }}>
                                     Service Objective
                                 </Box>
                                 <Box variant="p" >
                                     {project.details}
                                 </Box>
-                            </div>
+                            </Box>
 
-                            <div>
+                            <Box>
                                 <Box variant="awsui-key-label" padding={{ bottom: "xs" }}>
                                     System Architecture
                                 </Box>
                                 <Box variant="p" >
                                     {project.architecture || "Architecture details not available for this legacy system."}
                                 </Box>
-                            </div>
+                            </Box>
 
                         </ColumnLayout>
 
                         <div style={{ borderTop: "1px solid #eaeded", paddingTop: "20px" }}>
                             <ColumnLayout columns={2} variant="text-grid">
-                                <div>
+                                <Box>
                                     <Box variant="awsui-key-label">Tech Stack</Box>
-                                    <div style={{ marginTop: "8px" }}>
+                                    <Box margin={{ top: "xs" }}>
                                         <SpaceBetween direction="horizontal" size="xs">
                                             {project.tech.map((t) => (
                                                 <Badge key={t} color="blue">{t}</Badge>
                                             ))}
                                         </SpaceBetween>
-                                    </div>
-                                </div>
-                                <div>
+                                    </Box>
+                                </Box>
+                                <Box>
                                     <Box variant="awsui-key-label">Status</Box>
-                                    <div style={{ marginTop: "8px" }}>
+                                    <Box margin={{ top: "xs" }}>
                                         <StatusIndicator type="success">Active / Deployed</StatusIndicator>
-                                    </div>
-                                </div>
+                                    </Box>
+                                </Box>
                             </ColumnLayout>
                         </div>
 
@@ -104,7 +104,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                 <Container header={<Header variant="h2">System Visuals</Header>}>
                     {galleryImages.length > 0 ? (
                         <ColumnLayout columns={2}>
-                            {galleryImages.map((imgObj, index) => (
+                            {galleryImages.map((img, index) => (
                                 <div
                                     key={index}
                                     style={{
@@ -119,12 +119,12 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                 >
                                     <div style={{ height: "300px", width: "100%" }}>
                                         <img
-                                            src={imgObj.src}
-                                            alt={imgObj.desc}
+                                            src={img.src}
+                                            alt={img.desc}
                                             style={{
                                                 width: "100%",
                                                 height: "100%",
-                                                objectFit: "cover", 
+                                                objectFit: "cover",
                                                 display: "block"
                                             }}
                                         />
@@ -134,13 +134,19 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                                         padding: "12px 16px",
                                         background: "#f9f9f9",
                                         borderTop: "1px solid #eaeded",
-                                        flexGrow: 1 
+                                        flexGrow: 1
                                     }}>
                                         <Box variant="small" color="text-body-secondary">
-                                            <strong style={{ color: "#545b64", marginRight: "8px" }}>
+                                            <Box
+                                                variant='span'
+                                                fontWeight='bold'
+                                                fontSize='body-m'
+                                                color='text-body-secondary'
+                                                margin={{ right: "xxs" }}
+                                            >
                                                 Figure {index + 1}:
-                                            </strong>
-                                            {imgObj.desc}
+                                            </Box>
+                                            {img.desc}
                                         </Box>
                                     </div>
                                 </div>
