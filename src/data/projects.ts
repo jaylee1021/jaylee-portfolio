@@ -44,7 +44,7 @@ export const PROJECT_DATA: Project[] = [
     {
         id: "itcpc-church-home",
         name: "ITCPC Church Home",
-        description: "A web app for my church, allowing members to access information, events, and sermons. Admins can log in to manage content like sermons, events, photos, and bulletins.",
+        description: "A web app for my church, allowing members to access information, events, and sermons.",
         tech: ["JavaScript", "React.js", "Node.js", "MongoDB", "Cloudflare", "Cloudinary", "Material UI"],
         img: "/itcpc/tcpc-home.png",
         images: [
