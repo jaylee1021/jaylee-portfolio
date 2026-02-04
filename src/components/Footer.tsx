@@ -1,5 +1,4 @@
 import Box from "@cloudscape-design/components/box";
-import StatusIndicator from "@cloudscape-design/components/status-indicator";
 
 export default function ConsoleFooter() {
     return (
@@ -31,9 +30,8 @@ export default function ConsoleFooter() {
 
                     <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
                         <span style={{ fontSize: "12px", color: "#d1d5db" }}>
-                            Build v2.1.0 (Stable)
+                            Build v2.0 (Stable)
                         </span>
-                        <StatusIndicator type="success">Ready</StatusIndicator>
                     </div>
                 </div>
             </Box>
