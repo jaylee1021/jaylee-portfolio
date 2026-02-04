@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
 
     return (
         <>
-            <div id="h" style={{ position: 'sticky', top: 0, zIndex: 1002 }}>
+            <div id="h" style={{ position: 'sticky', top: 0, zIndex: 1001 }}>
                 <TopNavigation
                     identity={{
                         href: "/",
