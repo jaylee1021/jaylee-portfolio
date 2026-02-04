@@ -69,7 +69,7 @@ export default function Projects() {
                             content: item => (
                                 <div 
                                     style={{ 
-                                        height: "180px", 
+                                        height: "300px", 
                                         backgroundColor: "#f2f3f3", 
                                         borderRadius: "8px",
                                         overflow: "hidden",
@@ -119,7 +119,7 @@ export default function Projects() {
                                             href={item.demoUrl} 
                                             target="_blank"
                                         >
-                                            Live Demo
+                                            Launch App
                                         </Button>
                                         <Button 
                                             iconName="script" 
