@@ -70,24 +70,4 @@ export const PROJECT_DATA: Project[] = [
         details: "TCPC Church Home offers a dynamic web application designed to facilitate seamless communication within the church community. Through this platform, members and non-members alike can access a wealth of resources, including Sermons, Events, Photos, and more.",
         architecture: "The application is meticulously crafted using the powerful MERN stack, incorporating MongoDB for robust data storage, ExpressJS for a streamlined backend, React and NextJS for an intuitive user interface, and NodeJS to ensure optimal server-side functionality. To enhance accessibility, the application is deployed on Netlify for the client-side and Heroku for the server-side, ensuring a smooth and reliable user experience for all.",
     },
-    //     {
-    //         id: "e-commerce-app",
-    //         name: "E-Commerce App",
-    //         description: "A full-stack shopping platform.",
-    //         tech: ["React", "Node.js", "MongoDB"],
-    //         img: "https://example.com/e-commerce-app.png",
-    //         demoUrl: "https://e-commerce-app.jaylee-portfolio.com",
-    //         repoUrl: "https://github.com/jaylee-portfolio/e-commerce-app",
-    //         details: "A comprehensive e-commerce solution featuring user authentication, product catalog management, and a secure checkout process integrated with Stripe."
-    //     },
-    //     {
-    //         id: "task-manager",
-    //         name: "Task Manager",
-    //         description: "Simple drag-and-drop task management.",
-    //         tech: ["Vue.js", "Firebase"],
-    //         img: "https://example.com/task-manager.png",
-    //         demoUrl: "https://task-manager.jaylee-portfolio.com",
-    //         repoUrl: "https://github.com/jaylee-portfolio/task-manager",
-    //         details: "A productivity tool designed to help teams organize tasks efficiently. Features include drag-and-drop kanban boards, real-time updates via Firebase, and team collaboration tools."
-    //     }
 ];
