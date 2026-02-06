@@ -25,7 +25,7 @@ export default function UsageLimits() {
                     <SpaceBetween size="xxs" direction="horizontal">
                         <StatusIndicator type="success">Online</StatusIndicator>
                         <Box variant="small" color="text-body-secondary">
-                            Apple Silicon / macOS Tahoe
+                            Apple Silicon M4 Pro / macOS Tahoe
                         </Box>
                     </SpaceBetween>
                 </Box>
